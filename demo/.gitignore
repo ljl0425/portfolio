@@ -1,0 +1,14 @@
+# 演示库与运行产物
+*_demo.db
+*.db
+*.pyc
+__pycache__/
+workflows/
+tasks_demo/
+output/
+run.log
+.env
+
+# 系统
+.DS_Store
+Thumbs.db

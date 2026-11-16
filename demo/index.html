@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>可运行 Demo · 李嘉乐作品集</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="nav"><div class="shell nav-in">
+  <div class="brand">李嘉乐 <span class="mono">/ PORTFOLIO</span></div>
+  <div class="navlinks mono">
+    <a href="../index.html">首页</a>
+    <a href="../case-1-platform.html">01 平台</a>
+    <a href="../case-2-agent.html">02 AGENT</a>
+    <a href="../case-3-rpa.html">03 RPA</a>
+    <a class="on" href="index.html">DEMO</a>
+  </div>
+</div></div>
+
+<header class="chead"><div class="shell">
+  <a class="back mono" href="../index.html">← 回到首页</a>
+  <div class="grid12">
+    <div class="span8">
+      <h1>脱敏 Demo：把异常处理这条链路跑起来</h1>
+      <ul class="metas mono">
+        <li>技术栈 · Python / Flask + 前端 + SQLite</li>
+        <li>规模 · 21,000+ 行</li>
+        <li>数据 · 全部脚本生成，不连任何外部接口</li>
+      </ul>
+    </div>
+    <aside class="span4 kpi">
+      <div class="big mono">0 外连</div>
+      <div class="klabel">演示模式下不调任何外部系统</div>
+      <div class="ksmall">机台、站点、产品、字段统一为 DEMO-* 占位</div>
+    </aside>
+  </div>
+</div></header>
+
+<section class="ev"><div class="shell">
+  <div class="sec-head"><span class="num mono">01</span><h2>怎么跑</h2><p>本机三行命令，不需要任何内网权限</p></div>
+  <div class="rule"></div>
+  <pre class="mono" style="margin-top:22px;padding:16px;background:#FBF8F2;border:1px solid var(--line);font-size:13px;line-height:2;overflow-x:auto">cd demo
+pip install -r requirements.txt
+python seed_demo_data.py      # 生成演示任务与数据
+python start_demo.py          # → http://127.0.0.1:15001   登录密码：1</pre>
+  <p class="note">支持两条链路：OVL 量测与 Defect 缺陷。CD 链路涉及真实接口，演示模式下已关闭（点了会提示改用另外两条）。</p>
+</div></section>
+
+<section class="ev"><div class="shell">
+  <div class="sec-head"><span class="num mono">02</span><h2>跑起来长这样</h2><p>截图取自本仓库的演示版</p></div>
+  <div class="rule"></div>
+  <div class="evgrid">
+    <figure><img src="../assets/shots/home.png" alt="提交异常与任务列表">
+      <figcaption>提交异常：站点、机台、制程、类型、时间范围；下面是任务列表。</figcaption></figure>
+    <figure><img src="../assets/shots/monitor.png" alt="日常监控">
+      <figcaption>旁挂的日常监控：五类日报定时生成并推送。</figcaption></figure>
+    <figure><img src="../assets/shots/report-ovl-crop.png" alt="量测报告">
+      <figcaption>量测（OVL）报告：统计卡 + 异常清单 + 站点分布 + 量测折线。</figcaption></figure>
+    <figure><img src="../assets/shots/report-defect-crop.png" alt="缺陷报告">
+      <figcaption>缺陷报告：按站点统计 Defect Code / Open Code 分布与明细。</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="ev"><div class="shell">
+  <div class="sec-head"><span class="num mono">03</span><h2>代码里能看什么</h2><p>哪些是真的，哪些是脱敏替换</p></div>
+  <div class="rule"></div>
+  <div class="flow">
+    <div class="lane">
+      <div class="box"><span class="k mono">真实逻辑</span><b>报告引擎与路由</b><p>按异常类型分流到三套引擎、统计口径、图表生成、任务状态机</p></div>
+      <div class="box"><span class="k mono">真实逻辑</span><b>接口与数据层</b><p>取数适配、字段对齐、SQLite 落库、报告归档</p></div>
+      <div class="box human"><span class="k mono">脱敏替换</span><b>一切外部依赖</b><p>密钥走环境变量、内网地址换 DEMO_HOST、机台与字段换占位</p></div>
+    </div>
+    <p class="cap">保留的是「怎么判断、怎么组织数据」；换掉的是「具体在哪台机、哪个字段、哪个地址」。</p>
+  </div>
+
+  <p class="note">保密说明：这个 Demo 是从生产系统复制后做脱敏的独立副本，业务逻辑保持原样，所有编号、地址、密钥与业务字段已替换为占位值，且不包含任何内部系统的连通配置。</p>
+
+  <div class="next mono"><a href="../case-1-platform.html">← 看案例一：产线异常处理平台</a><a href="../index.html">回到首页 →</a></div>
+</div></section>
+
+<footer><div class="shell">
+  <span class="mono">李嘉乐 · 深圳 · 13790948893 · 2667829456@qq.com</span>
+  <span class="mono">个人作品集 · 案例已脱敏</span>
+</div></footer>
+
+</body>
+</html>

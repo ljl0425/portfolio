@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 异常单处理 Agent · 李嘉乐作品集</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav"><div class="shell nav-in">
+  <div class="brand">李嘉乐 <span class="mono">/ PORTFOLIO</span></div>
+  <div class="navlinks mono">
+    <a href="index.html">首页</a>
+    <a href="case-1-platform.html">01 平台</a>
+    <a class="on" href="case-2-agent.html">02 AGENT</a>
+    <a href="case-3-rpa.html">03 RPA</a>
+    <a href="demo/index.html" target="_blank" rel="noopener">DEMO ↗</a>
+  </div>
+</div></div>
+
+<div class="subnav"><div class="shell mono">
+  <a class="on" href="#cmp">01 之前 / 之后</a><a href="#turn">02 转折</a>
+  <a href="#dec">03 决策点</a><a href="#ev">附 边界与说明</a>
+  <span class="right">02 / 03</span>
+</div></div>
+
+<header class="chead"><div class="shell">
+  <a class="back mono" href="index.html">← 全部案例</a>
+  <div class="grid12">
+    <div class="span8">
+      <h1>异常单处理：判断不再长在个人身上</h1>
+      <ul class="metas mono">
+        <li>角色 · 立项 / 流程设计 / 编排 / 上线</li>
+        <li>周期 · 2026.01 – 2026.10</li>
+        <li>现状 · 2026.10 正式投产</li>
+      </ul>
+    </div>
+    <aside class="span4 kpi">
+      <div class="big mono">4 人 → 2 人</div>
+      <div class="klabel">每日值班人力</div>
+      <div class="ksmall">口径：按人均年成本 18 万元计，年化节约约 36 万元；减下来的 2 人转其他工艺与现场保养，不是减员</div>
+    </aside>
+  </div>
+</div></header>
+
+<section class="cmp" id="cmp"><div class="shell">
+  <div class="cmphead"><h2>两次做法，摆在一起看</h2><span class="hint">同一张单，中间少了哪几步</span></div>
+  <div class="legend"><span><i class="p a"></i>→ 系统自动</span><span><i class="p h"></i>→ 仍要人做</span><span><i class="p x"></i>→ 那一步没了</span><span class="lman">左侧灰卡＝以前的做法，每步都标「人工」</span></div>
+<div class="compare">
+    <div class="colhead col before">
+      <span class="lab mono b">01 · 没有这个 Agent 之前</span>
+      <h3>异常单靠人判</h3>
+      <p>经验长在个人身上，换个人就是另一个结论</p>
+    </div>
+    <div></div>
+    <div class="colhead col">
+      <span class="lab mono a">02 · 有了这个 Agent 之后</span>
+      <h3>异常单靠链路判</h3>
+      <p>语义交给模型，边界写成规则，最后一票留给人</p>
+    </div>
+
+    <div class="step"><span class="sno">1</span><div class="txt"><b>人读描述与截图，凭印象定性<span class="badge man">人工</span></b><p>描述长短不一、术语混用，读法因人而异</p></div><span class="dur">5′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">1</span><div class="txt"><b>LLM 归纳描述与历史，输出结构化类型与初判</b><p>只做「读懂 + 归类」，不判定执行动作<span class="badge auto">自动</span></p></div><span class="dur">20″</span></div>
+
+    <div class="step"><span class="sno">2</span><div class="txt"><b>翻历史记录找同类单<span class="badge man">人工</span></b><p>翻到哪算哪，找不到就凭记忆</p></div><span class="dur">6′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">2</span><div class="txt"><b>语义结论直接带上相似单与判断依据</b><p>结论可追溯，不靠「我记得上次也这样」<span class="badge auto">自动</span></p></div><span class="dur">秒级</span></div>
+
+    <div class="step"><span class="sno">3</span><div class="txt"><b>凭经验判断类型与拦截范围<span class="badge man">人工</span></b><p>同一条单，两个人可能给出两种范围</p></div><span class="dur">4′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">3</span><div class="txt"><b>规则校验：阈值、产品归属、流程顺序、重复单</b><p>要求确定性的环节一律固化成规则，不交给模型<span class="badge auto">自动</span></p></div><span class="dur">秒级</span></div>
+
+    <div class="step"><span class="sno">4</span><div class="txt"><b>决定拦到哪一步、是否放行<span class="badge man">人工</span></b><p>判错的代价是一批货，但没人复核</p></div><span class="dur">3′</span></div>
+    <div class="mark"><span class="pill h">→ 只有高风险才找人</span></div>
+    <div class="step after"><span class="sno">4</span><div class="txt"><b>小问题直接结单，高风险才转人</b><p>判据明确、影响面小的单子，工作流跑完就结束，不经过人；只有拿不准或影响大的才推到人面前<span class="badge auto">自动</span><span class="badge human">人工</span></p></div><span class="dur">2′</span></div>
+
+    <div class="step"><span class="sno">5</span><div class="txt"><b>口头通知相关人，结果记在群里<span class="badge man">人工</span></b><p>处理完就散，事后翻不到结论</p></div><span class="dur">3′</span></div>
+    <div class="mark"><span class="pill h">→ 升级人工复核</span></div>
+    <div class="step after"><span class="sno">5</span><div class="txt"><b>冲突或置信不足 → 升级人工</b><p>语义结论与规则打架、置信度不够，直接转人复核并记录升级原因<span class="badge human">人工</span></p></div><span class="dur">秒级</span></div>
+
+    <div class="step gone"><span class="sno">6</span><div class="txt"><b>经验留在人身上，换人重新问一遍</b><p>知识不沉淀，新人靠问、老人靠记</p></div><span class="dur">—</span></div>
+    <div class="mark"><span class="pill x">→ 换到节点里</span></div>
+    <div class="step after"><span class="sno">6</span><div class="txt"><b>经验沉淀为可配置节点</b><p>处理经验拆成节点与阈值，业务方自己改得了<span class="badge auto">自动</span></p></div><span class="dur">—</span></div>
+
+    <div class="colfoot">合计 约 21 分 · 判断不可复用</div>
+    <div></div>
+    <div class="colfoot">合计 约 2 分 + 人工复核 · 判断可复用</div>
+  </div>
+</div></section>
+
+<section class="turn" id="turn"><div class="shell">
+  <span class="lab mono">转折</span>
+  <p>我动的不是「上个大模型」—— 是先分清这条链路上哪一段模型能判、哪一段必须留给人，再一段一段划边界。</p>
+</div></section>
+
+<section class="dec" id="dec"><div class="shell">
+  <div class="sec-head"><span class="num mono">03</span><h2>关键决策点</h2><p>三个，不多不少</p></div>
+  <div class="rule"></div>
+
+  <div class="dblock">
+    <div class="dno">D1</div>
+    <div class="dmain">
+      <h3>我选择：判定权给模型，执行权不给</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>模型判完直接执行：全自动放行、自动 Hold，人力能压到最低。</p>
+          <p>放弃理由：错判一条放行，损失的是一批货；人复核一条只要几秒。这笔账不对称。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>能自动结掉的是「判据已经写清」那一部分，剩下的重单还是要人坐在决策位上；自动结单的比例能爬到多高，取决于规则库攒得多细。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dblock">
+    <div class="dno">D2</div>
+    <div class="dmain">
+      <h3>我选择：不确定就升级人工，不做兜底猜测</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>让模型「再想一次」补一个答案，追求每一单都有输出。</p>
+          <p>放弃理由：实际跑下来兜底几乎全错，而且错的时候语气一样自信 —— 这种输出比没有输出更危险。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>人工介入率到不了 0，永远有一部分单需要人看一眼；早期这个比例还不低。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dblock">
+    <div class="dno">D3</div>
+    <div class="dmain">
+      <h3>我选择：用编排平台搭，不自己写 Agent 框架</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>自研一套 Agent 框架：能力不受限，想怎么改就怎么改。</p>
+          <p>放弃理由：我要的是能快速改节点、加分支，而且业务同事看得懂；不是再维护一个框架。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>受平台能力边界限制，复杂逻辑要拆成多段链路；可读性换来了灵活性，也换来了迭代速度。</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="ev" id="ev"><div class="shell">
+  <div class="sec-head"><span class="num mono">附</span><h2>人机边界长什么样</h2><p>链路与权限的分层</p></div>
+  <div class="rule"></div>
+
+  <div class="flow">
+    <div class="lane">
+      <div class="box"><span class="k mono">输入</span><b>异常单进来</b><p>描述文本、截图、关联机台与时间</p></div>
+      <div class="box llm"><span class="k mono">模型</span><b>语义理解</b><p>归纳描述与历史，输出结构化类型与初判</p></div>
+      <div class="box strict"><span class="k mono">规则</span><b>确定性校验</b><p>阈值、产品归属、流程顺序、重复单合并</p></div>
+    </div>
+    <div class="arrow">↓ &nbsp;判据清楚 → 直接结单 &nbsp;|&nbsp; 冲突 / 置信不足 / 影响大 → 升级人工 &nbsp;↓</div>
+    <div class="lane">
+      <div class="box"><span class="k mono">自动</span><b>小问题流程自己结单</b><p>判据明确、影响面小的单子跑完即结，不经过人</p></div>
+      <div class="box human"><span class="k mono">人工</span><b>只有高风险单才找人</b><p>拿不准或影响大的推到人面前，不可逆动作仍由人点</p></div>
+      <div class="box"><span class="k mono">回流</span><b>结果沉淀</b><p>处理结论与回写记录，汇总成下一轮样本</p></div>
+    </div>
+    <p class="cap">模型只负责「读懂」，规则负责「不许出错」，人只接「拿不准和影响大」的那一档 —— 三层职责不重叠。</p>
+  </div>
+
+  <p class="note">这一页不放截图：异常单里包含真实批次、机台与工艺参数，画面本身就是产线机密。上面这张链路图按通用化口径重绘，节点名不含内部系统名、字段名与机台编号。系统规模：一个 Agent 工作流 + 若干接口适配，跑在内部编排平台上。</p>
+
+  <div class="next mono"><a href="case-1-platform.html">← 上一个：01 平台</a><a href="case-3-rpa.html">下一个：03 RPA 自动复机 →</a></div>
+</div></section>
+
+<footer><div class="shell">
+  <span class="mono">李嘉乐 · 深圳 · 13790948893 · 2667829456@qq.com</span>
+  <span class="mono">个人作品集 · 案例已脱敏</span>
+</div></footer>
+
+</body>
+</html>

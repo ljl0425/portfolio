@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03 RPA 自动复机 · 李嘉乐作品集</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav"><div class="shell nav-in">
+  <div class="brand">李嘉乐 <span class="mono">/ PORTFOLIO</span></div>
+  <div class="navlinks mono">
+    <a href="index.html">首页</a>
+    <a href="case-1-platform.html">01 平台</a>
+    <a href="case-2-agent.html">02 AGENT</a>
+    <a class="on" href="case-3-rpa.html">03 RPA</a>
+    <a href="demo/index.html" target="_blank" rel="noopener">DEMO ↗</a>
+  </div>
+</div></div>
+
+<div class="subnav"><div class="shell mono">
+  <a class="on" href="#cmp">01 之前 / 之后</a><a href="#turn">02 转折</a>
+  <a href="#dec">03 决策点</a><a href="#ev">附 架构与说明</a>
+  <span class="right">03 / 03</span>
+</div></div>
+
+<header class="chead"><div class="shell">
+  <a class="back mono" href="index.html">← 全部案例</a>
+  <div class="grid12">
+    <div class="span8">
+      <h1>RPA 自动复机：人不到场也能恢复</h1>
+      <ul class="metas mono">
+        <li>角色 · 主动立项 / 独立开发</li>
+        <li>周期 · 2025.06 – 2025.12</li>
+        <li>现状 · 产线运行中</li>
+      </ul>
+    </div>
+    <aside class="span4 kpi">
+      <div class="big mono">40 分 → 1 分</div>
+      <div class="klabel">停机到复机的人工耗时</div>
+      <div class="ksmall">同时从「必须 1 人到场」变成 0 人到场；金额见下方结果区，口径与来源一并标注</div>
+    </aside>
+  </div>
+</div></header>
+
+<section class="cmp" id="cmp"><div class="shell">
+  <div class="cmphead"><h2>两次做法，摆在一起看</h2><span class="hint">同一件事，中间少了几步</span></div>
+  <div class="legend"><span><i class="p a"></i>→ 系统自动</span><span><i class="p r"></i>→ 换了方式（改远程）</span><span class="lman">左侧灰卡＝以前的做法，每步都标「人工」</span></div>
+<div class="compare">
+    <div class="colhead col before">
+      <span class="lab mono b">01 · 没有这套系统之前</span>
+      <h3>停机之后靠人跑</h3>
+      <p>损失全压在「人什么时候到」这一件事上</p>
+    </div>
+    <div></div>
+    <div class="colhead col">
+      <span class="lab mono a">02 · 有了这套系统之后</span>
+      <h3>停机由事件驱动</h3>
+      <p>流程自己走完，人只看结果</p>
+    </div>
+
+    <div class="step"><span class="sno">1</span><div class="txt"><b>机台停了，人还没发现<span class="badge man">人工</span></b><p>靠巡线、靠别人喊，发现得越晚停得越久</p></div><span class="dur">?</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">1</span><div class="txt"><b>机台侧主动推送宕机事件</b><p>事件类型随消息一起带上，系统一开始就知道是哪类宕机<span class="badge auto">自动</span></p></div><span class="dur">0′</span></div>
+
+    <div class="step"><span class="sno">2</span><div class="txt"><b>打电话找人<span class="badge man">人工</span></b><p>谁在线谁去，判断该走哪套流程还得靠人</p></div><span class="dur">3′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">2</span><div class="txt"><b>系统按事件类型匹配复机流程</b><p>不需要人先判断是哪类宕机，也不需要派人<span class="badge auto">自动</span></p></div><span class="dur">秒级</span></div>
+
+    <div class="step"><span class="sno">3</span><div class="txt"><b>走到现场<span class="badge man">人工</span></b><p>换鞋、进无尘室、找到那台机台</p></div><span class="dur">12′</span></div>
+    <div class="mark"><span class="pill r">→ 改为远程</span></div>
+    <div class="step after"><span class="sno">3</span><div class="txt"><b>不用进场，走远程通道</b><p>机台本来就支持远程连接：人不必换鞋进无尘室；交给脚本执行时连这一步都不用点<span class="badge auto">自动</span></p></div><span class="dur">0′</span></div>
+
+    <div class="step"><span class="sno">4</span><div class="txt"><b>按复机 SOP 逐项点击<span class="badge man">人工</span></b><p>二十几步，凭记忆走，漏一步要重来</p></div><span class="dur">18′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">4</span><div class="txt"><b>下发指令，机台端脚本执行</b><p>机台端脚本接收指令后模拟键鼠，按流程逐项点击<span class="badge auto">自动</span></p>
+      <div class="substep">执行阶段才用画面匹配：机台端脚本识别画面元素并模拟键鼠。判定阶段不用它 —— 判定只看机台推来的事件。</div>
+    </div><span class="dur">40″</span></div>
+
+    <div class="step"><span class="sno">5</span><div class="txt"><b>事后补记录<span class="badge man">人工</span></b><p>想起来再填，忘了就断了链路</p></div><span class="dur">5′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">5</span><div class="txt"><b>结果回流看板 + 推值班群</b><p>带执行轨迹，成功、失败、需人工介入都可回看<span class="badge auto">自动</span></p></div><span class="dur">0′</span></div>
+
+    <div class="colfoot">合计 约 40 分 · 需 1 人到场</div>
+    <div></div>
+    <div class="colfoot">合计 约 1 分 · 0 人到场 · 1 条事件</div>
+  </div>
+
+  <div class="anno"><b>口径说明：</b>左侧耗时按现场实际步骤估算，不是仪表统计；右侧「约 1 分」含事件推送、流程匹配与脚本执行。执行成功率 100%，指固定 SOP 逐项执行未出现步骤失败 —— 判定不靠模型，只认机台推来的事件。收益按「人员未及时复机导致的产能损失」折算：月均 16 万元，年化约 192 万元；这是归因估算，统计口径由生产行为侧与财务共同确认。</div>
+</div></section>
+
+<section class="turn" id="turn"><div class="shell">
+  <span class="lab mono">转折</span>
+  <p>让我决定动手的不是技术变了 —— 是我算清楚停机的损失全压在「人什么时候到」这一件事上，而这件事跟人的能力无关。</p>
+</div></section>
+
+<section class="dec" id="dec"><div class="shell">
+  <div class="sec-head"><span class="num mono">03</span><h2>关键决策点</h2><p>三个，不多不少</p></div>
+  <div class="rule"></div>
+
+  <div class="dblock">
+    <div class="dno">D1</div>
+    <div class="dmain">
+      <h3>我选择：不做通用 RPA 平台，只做复机这一件事</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>直接用集团现成的 RPA 工具：能力更全，不用自己写。</p>
+          <p>放弃理由：评估后判断它的上手成本高于收益 —— 配置复杂、周期长、要排队；使用者是产线工程师，不是 IT。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>牺牲通用性：换一个场景就要重配流程，这套东西不能直接搬到别的工站。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dblock">
+    <div class="dno">D2</div>
+    <div class="dmain">
+      <h3>我选择：判定靠事件，执行靠画面 —— 两件事分开</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>让脚本自己看画面判断宕机类型：一套代码全包，看着更优雅。</p>
+          <p>放弃理由：误判一次就按错流程执行，代价是停机更久、甚至二次损伤。判定必须用确定性来源。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>依赖机台侧推送的事件字段；字段或类型一变，匹配逻辑要跟着改，得跟设备侧对齐。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dblock">
+    <div class="dno">D3</div>
+    <div class="dmain">
+      <h3>我选择：不动机台程序，走「零改造」这条路</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>让设备商开放接口、直接调机台程序：最干净的方案，成功率也最高。</p>
+          <p>放弃理由：改机台程序要走设备商流程，周期按季度算，等不起。机台本身已有远程连接通道，不必动程序也能把操作指令送到机器上。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>画面一变（分辨率、主题、弹窗）匹配模板就要维护，得有人盯着；这是零改造必然要付的维护成本。</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="ev" id="ev"><div class="shell">
+  <div class="sec-head"><span class="num mono">附</span><h2>三层架构</h2><p>下发、执行、看板，各自只管一件事</p></div>
+  <div class="rule"></div>
+
+  <div class="arch">
+    <div class="tiers">
+      <div class="tier"><span class="k mono">第一层 · 远程端</span><b>拆流程、下发指令</b>
+        <p>把复机 SOP 拆成可下发的操作指令序列，按事件类型选流程、按计划下发。人不需要到现场。</p></div>
+      <div class="tier"><span class="k mono">第二层 · 机台端</span><b>收指令、模拟执行</b>
+        <p>脚本收到指令后识别画面元素、模拟键鼠逐项执行；全过程留痕，失败可回看。</p></div>
+      <div class="tier"><span class="k mono">第三层 · 网页看板</span><b>看状态、看结果</b>
+        <p>实时展示机台状态、触发记录与执行结果，异常一屏可见，结果同时推值班群。</p></div>
+    </div>
+    <p class="cap">判定在上层（机台推送的事件），执行在下层（画面匹配 + 键鼠模拟）—— 两件事永远不会混在同一个环节里。</p>
+  </div>
+
+  <p class="note">这一页不放截图：复机看板连着的就是机台告警接口，界面本身就带着产线拓扑与机台编号。上面这张架构图按通用化口径重绘，不含具体机台号、内部系统名与真实字段。规模：机台端脚本 + 下发服务 + 网页看板，三个部分都由我一个人写完并上线。</p>
+
+  <div class="next mono"><a href="case-2-agent.html">← 上一个：02 AGENT</a><a href="index.html">回到首页 →</a></div>
+</div></section>
+
+<footer><div class="shell">
+  <span class="mono">李嘉乐 · 深圳 · 13790948893 · 2667829456@qq.com</span>
+  <span class="mono">个人作品集 · 案例已脱敏</span>
+</div></footer>
+
+</body>
+</html>

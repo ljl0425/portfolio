@@ -1,0 +1,7 @@
+﻿_preview/
+__pycache__/
+*.pyc
+*.db
+.env
+tasks_demo/
+workflows/

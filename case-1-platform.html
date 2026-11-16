@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 产线异常处理平台 · 李嘉乐作品集</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="nav"><div class="shell nav-in">
+  <div class="brand">李嘉乐 <span class="mono">/ PORTFOLIO</span></div>
+  <div class="navlinks mono">
+    <a href="index.html">首页</a>
+    <a class="on" href="case-1-platform.html">01 平台</a>
+    <a href="case-2-agent.html">02 AGENT</a>
+    <a href="case-3-rpa.html">03 RPA</a>
+    <a href="demo/index.html" target="_blank" rel="noopener">DEMO ↗</a>
+  </div>
+</div></div>
+
+<div class="subnav"><div class="shell mono">
+  <a class="on" href="#cmp">01 之前 / 之后</a><a href="#turn">02 转折</a>
+  <a href="#dec">03 决策点</a><a href="#ev">附 Demo 界面</a>
+  <span class="right">01 / 03</span>
+</div></div>
+
+<header class="chead"><div class="shell">
+  <a class="back mono" href="index.html">← 全部案例</a>
+  <div class="grid12">
+    <div class="span8">
+      <h1>产线异常处理：30 分钟压到 3 分钟</h1>
+      <ul class="metas mono">
+        <li>角色 · 立项 / 产品形态 / 开发 / 上线</li>
+        <li>周期 · 2026.09 – 至今</li>
+        <li>现状 · 值班人员日常使用</li>
+      </ul>
+    </div>
+    <aside class="span4 kpi">
+      <div class="big mono">30 分 → 3 分</div>
+      <div class="klabel">单次异常处理耗时</div>
+      <div class="ksmall">口径：从收到异常到报告成型，日均 4+ 条；左侧 30 分为跟班实测估算（非仪表统计），右侧 3 分为系统日志</div>
+    </aside>
+  </div>
+</div></header>
+
+<section class="cmp" id="cmp"><div class="shell">
+  <div class="cmphead"><h2>两次做法，摆在一起看</h2><span class="hint">同一件事，中间少了几步</span></div>
+  <div class="legend"><span><i class="p a"></i>→ 系统自动</span><span><i class="p h"></i>→ 仍要人做</span><span><i class="p b"></i>→ 人工或自动触发</span><span class="lman">左侧灰卡＝以前的做法，每步都标「人工」</span></div>
+<div class="compare">
+    <div class="colhead col before">
+      <span class="lab mono b">01 · 没有这个平台之前</span>
+      <h3>异常来了，人自己凑</h3>
+      <p>一个人扛完整链路，做完就散，下次重来</p>
+    </div>
+    <div></div>
+    <div class="colhead col">
+      <span class="lab mono a">02 · 有了这个平台之后</span>
+      <h3>异常来了，系统先摆好</h3>
+      <p>人只做最后一个动作：执行不执行</p>
+    </div>
+
+    <div class="step"><span class="sno">1</span><div class="txt"><b>收到异常：群里喊、电话、口头<span class="badge man">人工</span></b><p>谁在岗谁接，信息散在聊天记录里</p></div><span class="dur">即时</span></div>
+    <div class="mark"><span class="pill b">→ 人工 或 自动</span></div>
+    <div class="step after"><span class="sno">1</span><div class="txt"><b>两条入口：人工提交 / 异常自动触发</b><p>人填一次表单（站点 / 机台 / 制程 / 类型 / 时间范围）；已配过规则的异常类型由系统检测到后自己开单，不用人先去填<span class="badge human">人工</span><span class="badge auto">自动</span></p></div><span class="dur">1′ / 0′</span></div>
+
+    <div class="step"><span class="sno">2</span><div class="txt"><b>翻作业规范，确认判断范围<span class="badge man">人工</span></b><p>这次异常该看哪些指标、取样多大，靠人记</p></div><span class="dur">4′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">2</span><div class="txt"><b>按类型路由到对应报告引擎</b><p>制程参数 / 量测（OVL、CD）/ 缺陷，三条链路各自成表<span class="badge auto">自动</span></p></div><span class="dur">秒级</span></div>
+
+    <div class="step"><span class="sno">3</span><div class="txt"><b>到几个系统分别取数<span class="badge man">人工</span></b><p>机台参数一个系统、量测另一个、缺陷第三个、Hold 记录第四个</p></div><span class="dur">12′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">3</span><div class="txt"><b>一次性拉齐四类数据</b><p>该类型的参数、量测、缺陷、Hold 记录一次取回并对齐 key<span class="badge auto">自动</span></p></div><span class="dur">秒级</span></div>
+
+    <div class="step"><span class="sno">4</span><div class="txt"><b>手工拼一份报告<span class="badge man">人工</span></b><p>复制到表格、截图、再排版，格式每次不一样</p></div><span class="dur">8′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">4</span><div class="txt"><b>报告自动成型</b><p>统计卡（总片数 / 有量测 / 风险 / 已选）+ 异常清单 + 站点分布 + 量测折线<span class="badge auto">自动</span></p></div><span class="dur">10″</span></div>
+
+    <div class="step"><span class="sno">5</span><div class="txt"><b>凭经验定 Hold 不 Hold<span class="badge man">人工</span></b><p>判错一次不是重做，是整批货的问题</p></div><span class="dur">5′</span></div>
+    <div class="mark"><span class="pill h">→ 仍由人做</span></div>
+    <div class="step after"><span class="sno">5</span><div class="txt"><b>人看报告做决定</b><p>Hold / 取消 Hold / 做账 —— 这一步永远留给人<span class="badge human">人工</span></p></div><span class="dur">2′</span></div>
+
+    <div class="step"><span class="sno">6</span><div class="txt"><b>事后靠聊天记录复述<span class="badge man">人工</span></b><p>处理完就散，复盘要重新拉一遍数据</p></div><span class="dur">3′</span></div>
+    <div class="mark"><span class="pill">→ 系统自动</span></div>
+    <div class="step after"><span class="sno">6</span><div class="txt"><b>归档 + 通知</b><p>报告链接可回溯，结果经接口推给值班群<span class="badge auto">自动</span></p></div><span class="dur">0′</span></div>
+
+    <div class="colfoot">合计 约 30 分 · 全链路一个人</div>
+    <div></div>
+    <div class="colfoot">合计 约 3 分 · 人只做第 5 步</div>
+  </div>
+  <div class="anno">入口有两条路：<b>人工提交</b>，或者这类异常已经配过触发规则与取样范围时<b>由系统自己开单</b>。没配过的类型仍走人工 —— 所以中间标的是「人工 或 自动」，不是二选一。</div>
+</div></section>
+
+<section class="turn" id="turn"><div class="shell">
+  <span class="lab mono">转折</span>
+  <p>让我决定动手的不是「手工点太多次」—— 是我跟班几天后发现自己一开始就判断错了痛点：真正吃掉时间的是判断依据凑不齐。</p>
+</div></section>
+
+<section class="dec" id="dec"><div class="shell">
+  <div class="sec-head"><span class="num mono">03</span><h2>关键决策点</h2><p>三个，不多不少</p></div>
+  <div class="rule"></div>
+
+  <div class="dblock">
+    <div class="dno">D1</div>
+    <div class="dmain">
+      <h3>我选择：做半自动 —— 系统给建议，人做执行决策</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>全自动：系统直接判 Hold 或放行，人只处理被标红的少数。</p>
+          <p>放弃理由：异常处理会触发不可逆的生产动作，错判一次的代价是一批货，远高于省下的那几分钟。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>人始终在环，自动化率到不了顶；值班人员每天仍要点那一次，效率提升封顶在 90% 左右。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dblock">
+    <div class="dno">D2</div>
+    <div class="dmain">
+      <h3>我选择：先把指标收敛到一套看板，再谈自动化</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>先做自动化、数据后理：先让机器跑起来，指标不对再回头修。</p>
+          <p>放弃理由：数据不统一的时候做自动化，只是把错的东西加速。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>前期一个多月没有新功能可展示，全在做取数与口径对齐 —— 这段时间看起来毫无进度。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dblock">
+    <div class="dno">D3</div>
+    <div class="dmain">
+      <h3>我选择：接收端不另做 App，落在值班群</h3>
+      <div class="dgrid">
+        <div class="dcol"><span class="lbl mono">放弃的选项</span>
+          <p>独立客户端或独立看板系统：体验更完整，能塞更多功能。</p>
+          <p>放弃理由：用户本来就在群里工作。多一个入口就多一次切换，多一次切换就多一次「不用」。</p></div>
+        <div class="dcol cost"><span class="lbl mono">代价</span>
+          <p>受消息平台能力限制，复杂交互只能拆成「群里点链接跳网页」，两处体验不连续。</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="ev" id="ev"><div class="shell">
+  <div class="sec-head"><span class="num mono">附</span><h2>Demo 界面</h2><p>脱敏演示版的实际样子</p></div>
+  <div class="rule"></div>
+  <div class="evgrid">
+    <figure><img src="assets/shots/home.png" alt="提交异常与任务列表">
+      <figcaption>提交入口与任务列表：一次提交带站点、机台、制程、类型与时间范围；下面按状态可筛。</figcaption></figure>
+    <figure><img src="assets/shots/monitor.png" alt="日常监控五类日报">
+      <figcaption>旁挂的日常监控：Dose、OVL、ECPM、工事、Hold 五类日报定时生成后推送。</figcaption></figure>
+    <figure><img src="assets/shots/report-ovl-crop.png" alt="量测异常报告">
+      <figcaption>量测（OVL）报告：统计卡 + 异常清单 + 站点分布 + 量测折线，一页看完再决定 Hold 不 Hold。</figcaption></figure>
+    <figure><img src="assets/shots/report-defect-crop.png" alt="缺陷异常报告">
+      <figcaption>缺陷报告：按站点分 PHL / WET 统计 Defect Code 与 Open Code 分布，附明细样例。</figcaption></figure>
+  </div>
+
+  <details class="run"><summary class="mono">▸ 运行脱敏 Demo（可选，默认折叠）</summary>
+    <pre class="mono">cd portfolio/demo
+pip install -r requirements.txt
+python seed_demo_data.py
+python start_demo.py        # → http://127.0.0.1:15001  密码 1</pre>
+  </details>
+
+  <p class="note">保密说明：机台、站点、产品与字段均为演示占位（DEMO-*），数据由脚本生成；真实系统内的编号与业务口径不对外。演示版支持 OVL 与 Defect 两条链路，CD 链路涉及真实接口已关闭。</p>
+
+  <div class="next mono"><span>← 回到首页</span><a href="case-2-agent.html">下一个：02 异常单 Agent →</a></div>
+</div></section>
+
+<footer><div class="shell">
+  <span class="mono">李嘉乐 · 深圳 · 13790948893 · 2667829456@qq.com</span>
+  <span class="mono">个人作品集 · 案例已脱敏</span>
+</div></footer>
+
+</body>
+</html>
