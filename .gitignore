@@ -5,3 +5,4 @@ __pycache__/
 .env
 tasks_demo/
 workflows/
+_deploy.cmd
